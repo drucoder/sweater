@@ -40,19 +40,6 @@
                 </#if>
             </div>
         </div>
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Email:</label>
-            <div class="col-sm-6">
-                <input type="email" name="email" value="<#if user??>${user.email}</#if>"
-                       class="form-control ${(emailError??)?string('is-invalid', '')}"
-                       placeholder="some@some.com" />
-                <#if emailError??>
-                    <div class="invalid-feedback">
-                        ${emailError}
-                    </div>
-                </#if>
-            </div>
-        </div>
         <#--<div class="col-sm-6">-->
             <#--<div class="g-recaptcha" data-sitekey="6LduQVoUAAAAAD8hypySNroht_6UnzhoQRV3QIWc"></div>-->
             <#--<#if captchaError??>-->

@@ -1,0 +1,2 @@
+ALTER TABLE usr
+  DROP COLUMN email;
