@@ -58,8 +58,9 @@ public class RegistrationController {
             model.addAttribute("password2Error", "Password confirmation cannot be empty");
         }
 
-        if (5==5) {
+        if (user.getPassword() != null && !user.getPassword().equals(passwordConfirm)) {
             model.addAttribute("passwordError", "Passwords are different!");
+            return "registration";
         }
 
         if (isConfirmEmpty || bindingResult.hasErrors()) {
