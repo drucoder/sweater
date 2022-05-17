@@ -27,9 +27,6 @@ public class UserSeviceTest {
     private UserRepo userRepo;
 
     @MockBean
-    private MailSender mailSender;
-
-    @MockBean
     private PasswordEncoder passwordEncoder;
 
     @Test
@@ -45,12 +42,6 @@ public class UserSeviceTest {
         Assert.assertTrue(CoreMatchers.is(user.getRoles()).matches(Collections.singleton(Role.USER)));
 
         Mockito.verify(userRepo, Mockito.times(1)).save(user);
-        Mockito.verify(mailSender, Mockito.times(1))
-                .send(
-                        ArgumentMatchers.eq(user.getEmail()),
-                        ArgumentMatchers.anyString(),
-                        ArgumentMatchers.anyString()
-                );
     }
 
     @Test
@@ -68,12 +59,7 @@ public class UserSeviceTest {
         Assert.assertFalse(isUserCreated);
 
         Mockito.verify(userRepo, Mockito.times(0)).save(ArgumentMatchers.any(User.class));
-        Mockito.verify(mailSender, Mockito.times(0))
-                .send(
-                        ArgumentMatchers.anyString(),
-                        ArgumentMatchers.anyString(),
-                        ArgumentMatchers.anyString()
-                );
+
     }
 
     @Test
